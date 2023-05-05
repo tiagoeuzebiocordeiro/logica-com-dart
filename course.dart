@@ -2,6 +2,14 @@
 
 // enum
 
+import 'dart:async';
+
+class Product {
+  final int price;
+
+  Product(this.price);
+}
+
 enum UserType {
   ADMIN,
   CUSTOMER,
@@ -293,4 +301,78 @@ void main() {
 
   // quer limpar ele? map.clear();
   //temos o map Add all tbm, pra adicionar novas chaves no nosso map, addentries pra fazer um merge de dados.
+
+  //Streams (value)
+
+  // Operadores logicos - and (&&) / or (||)
+
+  var variavel1 = 1;
+  var variavel2 = 2;
+
+  if (variavel1 > 0 && variavel2 > 3) {
+    print(
+        "False"); // Nunca vai imprimir isso pq a == 1 > 0 (V) mas b == 2 > 3 (F)
+  } else {
+    print("Test");
+  }
+
+  //test with or
+
+  if (variavel1 > 0 || variavel2 < 3) {
+    print("OR");
+  }
+
+  //operadores cond (if, else, switch case, op ternario)
+
+//somas
+  print(soma(3, 5));
+  print("CHAMOU A FUNÇÃO (ASYNC)");
+  asyncFuct();
+  print("PROCESSANDO A FUNÇÃO");
+
+  print(fatorial(3));
+
+  final numerosDesafio = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  var somaPar = 0;
+
+  for (var i = 0; i < numerosDesafio.length; i++) {
+    if (numerosDesafio[i] % 2 == 0) {
+      somaPar += numerosDesafio[i];
+    }
+  }
+
+  print(somaPar);
+} // end void function
+
+int soma(int a, int b) => a + b;
+
+// Função assincrona
+
+Future<void> asyncFuct() async {
+  print("CHAMOU A API");
+  await Future.delayed(Duration(seconds: 5));
+  print("API CHAMADA COM SUCESSO");
+}
+
+fatorial(int n) {
+  if (n == 0) {
+    return 1;
+  }
+
+  return n * fatorial(n - 1);
+}
+
+//fatorial(5) => 5 * 4 = 20
+
+int searchIndex(List<String> list, String object, [int? index]) {
+  final currentIndex = index ?? 0;
+
+  if (currentIndex == list.length) {
+    return -1;
+  } else if (currentIndex == object) {
+    return currentIndex;
+  }
+
+  return searchIndex(list, object, (currentIndex + 1));
 }
