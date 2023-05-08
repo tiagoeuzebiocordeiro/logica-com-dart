@@ -10,6 +10,14 @@ class Product {
   Product(this.price);
 }
 
+class Pessoa {
+  String nome;
+  String cpf;
+  String rg;
+
+  Pessoa({required this.nome, required this.cpf, required this.rg});
+}
+
 enum UserType {
   ADMIN,
   CUSTOMER,
@@ -343,6 +351,9 @@ void main() {
   }
 
   print(somaPar);
+  final pessoa =
+      Pessoa(nome: "Joao Marcos", cpf: "123.123.123-12", rg: "12345678910");
+  print(pessoa);
 } // end void function
 
 int soma(int a, int b) => a + b;
@@ -375,4 +386,6 @@ int searchIndex(List<String> list, String object, [int? index]) {
   }
 
   return searchIndex(list, object, (currentIndex + 1));
+
+  // Orientação a Objetos
 }
